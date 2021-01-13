@@ -15,6 +15,8 @@ RUN echo "JAVA_HOME=$JAVA_HOME" >> $HADOOP_ROOT/etc/hadoop/hadoop-env.sh \
 
 ADD entrypoint.sh /entrypoint.sh
 
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 22 9000 9864 9866 9867 9868 9870
 
 ENTRYPOINT ["/entrypoint.sh"]

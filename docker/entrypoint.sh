@@ -12,7 +12,7 @@ fi
 cd $HADOOP_ROOT
 if [ ! -d "/tmp/hadoop-root/dfs/name/" ]; then
   ./bin/hdfs namenode -format
-  set +e
+  set +ex
   {
     for k in $( seq 1 100 )
     do
