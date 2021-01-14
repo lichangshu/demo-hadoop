@@ -1,4 +1,4 @@
-## DOCKER hadoop BASE
+## DOCKER hadoop BASE / microwww/hadoop:v3.3.0-base
 FROM ubuntu:20.04
 
 MAINTAINER charles <lcs.005@163.com>

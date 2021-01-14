@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -xe
 
 /usr/sbin/sshd
@@ -9,7 +9,7 @@ if [ ! -d '/root/.ssh/' ]; then
 	chmod 600 /root/.ssh/*
 fi
 
-cd $HADOOP_ROOT
+cd $HADOOP_HOME
 if [ ! -d "/tmp/hadoop-root/dfs/name/" ]; then
   ./bin/hdfs namenode -format
   set +ex
@@ -23,15 +23,12 @@ if [ ! -d "/tmp/hadoop-root/dfs/name/" ]; then
         sleep 1
     done
   } &
-
+  set -xe
 fi
-
-set -xe
 
 bin/hdfs --daemon start namenode -D fs.defaultFS=hdfs://${HOSTNAME}:9000 -D dfs.replication=1
 
-bin/hdfs datanode -D fs.defaultFS=hdfs://${HOSTNAME}:9000 -D dfs.replication=1
+bin/hdfs                datanode -D fs.defaultFS=hdfs://${HOSTNAME}:9000 -D dfs.replication=1
 
-# sbin/start-dfs.sh
-# $HADOOP_ROOT/sbin/start-dfs.sh
+# $HADOOP_HOME/sbin/start-dfs.sh
 # exec $@
