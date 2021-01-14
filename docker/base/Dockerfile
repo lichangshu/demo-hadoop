@@ -21,8 +21,8 @@ RUN mkdir /run/sshd \
 
 RUN  apt-get clean \
     && rm -rf /tmp/* \
-    && rm -rf /var/cache
-    && rm -rf /var/lib/apt
+    && rm -rf /var/cache \
+    && rm -rf /var/lib/apt \
     && rm -rf /var/lib/dpkg
 
 EXPOSE $SSH_PORT 9000 9864 9866 9867 9868 9870
