@@ -25,4 +25,7 @@ RUN  apt-get clean \
     && rm -rf /var/lib/apt \
     && rm -rf /var/lib/dpkg
 
+ENV PATH "$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH"
+WORKDIR $HADOOP_HOME
+
 EXPOSE $SSH_PORT 9000 9864 9866 9867 9868 9870
